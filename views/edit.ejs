@@ -1,0 +1,42 @@
+<%- include("includes/header.ejs") %>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="basic-username" class="form-label">Username</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="basic-username" name="username" value="<%= post.username %>">
+                    </div>
+                </div>
+                
+            </div>
+            <form action="/posts/<%= post.id %>?_method=PATCH" method="post">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="basic-url" class="form-label">Your Image URL</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon3">URL</span>
+                            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4" name="img" value="<%= post.img %>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-3">
+                    <label for="basic-caption" class="form-label">Caption</label>
+                    <div class="input-group">
+                        <span class="input-group-text">Caption</span>
+                        <textarea class="form-control" aria-label="With textarea" id="basic-caption" name="caption"><%= post.caption %></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            
+    </div>
+</body>
+
+<%- include("includes/footer.ejs") %>
